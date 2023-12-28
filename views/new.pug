@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  h1= title
+  form(method='POST')
+    p
+        label(for='author') username:
+        input#author(
+            type='text'
+            placeholder='anon'
+            name='author'
+            required
+        )
+    p
+        label(for='content') message:
+        textarea#content(
+            placeholder='enter your message here'
+            name='content'
+            required
+        )
+    p
+        button(type='submit') Send
+    if errors
+        ul
+            for error in errors
+                li!= error.msg
+    a(href='/') back

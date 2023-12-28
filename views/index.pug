@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  div.msg-grp-container
+    div.message-group
+      each message in messages
+        div.message
+          div.message-title
+            span #[strong #{message.author}] &nbsp;
+            span on: #{message.date_formatted}
+          div.message-content #{message.content}
+  a(href='/new') new message
